@@ -35,6 +35,14 @@ socketIo.on("connection", (socket) => {
     socketIo.emit(`receiveMessageOnline.${data.receive.id}`, data);
   });
 
+  socket.on("sendChangeBackground", (data) => {
+    socketIo.emit(`receiveChangeBackground.${data.groupMessageMessage.id}`, data);
+  });
+
+  socket.on("sendChangeEmojii", (data) => {
+    socketIo.emit(`receiveChangeEmojii.${data.groupMessageMessage.id}`, data);
+  });
+
   socket.on("disconnect", () => {
     console.log("Client disconnected");
   });
